@@ -95,7 +95,7 @@ def denormalize(img, mean=(0.5,) * 3, std=(0.5,) * 3):
 
 def overlay(img, cam, alpha=0.45, cmap="jet"):
     heat = plt.get_cmap(cmap)(np.asarray(cam))[..., :3]
-    return (1 - alpha) * img + alpha * heat
+    return np.clip((1 - alpha) * img + alpha * heat, 0, 1)
 
 
 def _take(loader, n, only=None, model=None, device=None, seed=None, batch=64):
