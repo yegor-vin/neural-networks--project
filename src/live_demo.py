@@ -74,8 +74,6 @@ def load_model(weights_path, device, num_classes):
 
 
 class LetterClassifier:
-    """Hand detection + crop + ResNet prediction for a single RGB frame."""
-
     def __init__(self, weights_path, img_size=None, margin=0.25, device=None):
         meta = load_meta(weights_path)
         self.classes = meta.get("classes", DEFAULT_CLASSES)
